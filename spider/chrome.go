@@ -401,7 +401,7 @@ func (c *chromeSpider) addNetWorkListener() {
 	chromedp.ListenTarget(c.context, func(v interface{}) {
 		switch ev := v.(type) {
 		case *network.EventRequestWillBeSent:
-			fmt.Println(ev.Request.Method, ev.Request.URL, ev.Request.PostData, ev.Request.Headers)
+			fmt.Println(ev.Request.Method, ev.Request.URL, ev.Request.Headers)
 		case *page.EventJavascriptDialogOpening:
 			fmt.Println("closing alert:", ev.Message)
 			t := page.HandleJavaScriptDialog(true) //false自动关闭alert对话框
